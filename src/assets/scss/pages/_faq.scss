@@ -1,0 +1,160 @@
+@import "../components/btn.scss";
+@import "../base/font.scss";
+
+.FAQ{
+    min-height: calc(100vh - 140px);
+    padding: 20px 0 50px;
+    display: flex;
+    flex-direction: column;
+    p, a{
+        color: $clr_gray_L1;
+    }
+    h2{
+        padding: 15px;
+        color: $clr_gray_L1;
+    }
+    .container{
+        flex-grow: 1;
+        width: 100%;
+        padding-bottom: 50px;
+        @include minW(1200px){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        aside{
+            display: none;
+            @include minW(1200px){
+                display: block;
+                width: 20%;
+            }
+            .categoryList{
+                .category{
+                    cursor: pointer;
+                    display: flex;
+                    padding: 15px;
+                    color: $clr_gray_L1;
+                    border-top: 1px solid $clr_gray_L4;
+                    transition: $trs;
+                    &:hover{
+                        background: $clr_blue_L4;
+                        transition: $trs;
+                    }
+                    &:last-child{
+                        border-bottom: 1px solid $clr_gray_L4;
+                    }
+                }
+                .category.on{
+                    &::before{
+                        content: '';
+                        display: block;
+                        width: 5px;
+                        height: 22px;
+                        margin-right: 10px;
+                        background: $clr_blue_L2;
+                    }
+                }
+            }
+        }
+        main{
+            width: 100%;
+            @include minW(1200px){
+                width: calc(80% - 100px);
+            }
+            .search{
+                display: flex;
+                align-items: center;
+                position: relative;
+                .input-gold{ 
+                    width: 100%;
+                    margin: 10px 0 30px;
+                }
+                button{
+                    border: none;
+                    background: none;
+                    color: $clr_gray_L1;
+                    &:hover{
+                        color: $clr_gold_L1;
+                        transition: $trs;
+                    }
+                    &:active{
+                        color: $clr_gold_L0;
+                    }
+                    &:focus-visible{
+                        outline: none;
+                        color: $clr_gold_L1;
+                    }
+                    &:focus:not(:focus-visible){
+                        outline: none;
+                    }
+                    i{
+                        cursor: pointer;
+                        margin: 10px 10px 30px;
+                    }
+                }
+                span{
+                    cursor: pointer;
+                    color: $clr_gold_L1;
+                    position: absolute;
+                    left: calc(100% - 90px);
+                    bottom: 40px;
+                }
+            }
+            .tabs{
+                display: none;
+                position: relative;
+                border-bottom: 3px solid $clr_blue_L1;
+                margin-bottom: 30px;
+                @include maxW(1200px){
+                    display: block;
+                }
+                .tab{
+                    cursor: pointer;
+                    position: relative;
+                    top: 1px;
+                    display: inline-block;
+                    margin: 0 -2px;
+                    background: $clr_fff;
+                    color: $clr_gray_L1;
+                    border: 1px solid $clr_blue_L3;
+                    border-radius: 12px 12px 0px 0px;
+                    @include btnPadding(10, 30);
+                    @include maxW(767px){
+                        @include btnPadding(8, 20);
+                    }
+                    @include maxW(480px){
+                        @include btnPadding(8, 10);
+                    }
+                    &:hover{
+                        background: $clr_blue_L3;
+                        transition: $trs;
+                    }
+                    &:active{
+                        background: $clr_blue_L2;
+                    }
+                    &:focus-visible{
+                        border-radius: 8px;
+                    }
+                    &:focus:not(:focus-visible){
+                        outline: none;
+                    }
+                }
+                .tab.on{
+                    background: $clr_blue_L1;
+                    border-color: $clr_blue_L1;
+                    color: $clr_fff;
+                }
+            }
+            .faqList{
+                .faq{
+                    padding: 15px 30px;
+                    color: $clr_gray_L1;
+                    border-radius: 10px;
+                    &:nth-child(odd){
+                        background: $clr_blue_L4;
+                    }
+                }
+            }
+        }
+    }
+}
